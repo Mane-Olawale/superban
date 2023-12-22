@@ -1,4 +1,4 @@
-name: Tests
+name: Superban Tests
 
 on:
   pull_request:
@@ -11,15 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [7.4, 8.0, 8.1, 8.2]
+        php: [8.0, 8.1, 8.2]
         laravel: [8, 9, 10]
         exclude:
-          - php: 7.4
-            laravel: 10
           - php: 8.0
             laravel: 10
-          - php: 7.4
-            laravel: 9
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
@@ -45,7 +41,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-           composer require "illuminate/support=^${{ matrix.laravel }}" --no-update
+           composer require "illuminate/contracts=^${{ matrix.laravel }}" --no-update
            composer update --prefer-dist --no-interaction --no-progress
       - name: Run PHPUnit Tests
         run: composer test
