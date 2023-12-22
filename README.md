@@ -72,6 +72,19 @@ Route::middleware(['superban_route:100,3,2880'])->group(function () {
     });
 });
 ```
+
+**`OR`**
+
+```php
+Route::post('/audio', function () {
+    // ...
+})->middleware(['superban_route:100,3,2880']);
+
+Route::post('/video', function () {
+    // ...
+})->middleware(['superban_route:100,3,2880']);
+```
+
 In the given Laravel route definition, the `superban_route` middleware enforces rate limiting and user banning on a per-route basis.
 
 ## Default value
