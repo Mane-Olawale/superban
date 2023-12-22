@@ -57,7 +57,7 @@ In the provided Laravel route definition, the `superban` middleware has been app
 
 In summary, the `superban` middleware has been configured to enforce rate limiting on the group of routes. Users or clients are allowed a maximum of 100 requests within a 3-minute time window. If a user exceeds this limit, they will be banned for 2880 minutes (2 days). This setup helps to control and mitigate potential abuse or excessive requests, contributing to the overall security and stability of the Laravel application.
 
-> Crucially, the `superban` middleware, when applied to an route or group, ensures that the resulting ban is universally enforced. Bellow is an example of a route specific ban.
+> **Note:** Crucially, the `superban` middleware, when applied to an route or group, ensures that the resulting ban is universally enforced. Below is a example of a route specific ban.
 
 ### Route specific banning middleware
 
