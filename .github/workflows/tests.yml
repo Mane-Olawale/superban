@@ -45,7 +45,7 @@ jobs:
 
       - name: Install Composer Dependencies
         run: |
-           composer require "illuminate/contracts=^${{ matrix.laravel }}" --no-update
+           composer require "illuminate/support=^${{ matrix.laravel }}" --no-update
            composer update --prefer-dist --no-interaction --no-progress
       - name: Run PHPUnit Tests
         run: composer test
