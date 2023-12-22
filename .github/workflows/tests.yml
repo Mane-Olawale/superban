@@ -1,0 +1,51 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [7.4, 8.0, 8.1, 8.2]
+        laravel: [8, 9, 10]
+        exclude:
+          - php: 7.4
+            laravel: 10
+          - php: 8.0
+            laravel: 10
+          - php: 7.4
+            laravel: 9
+
+    name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
+
+    steps:
+      # basically git clone
+      - uses: actions/checkout@v2
+
+      - name: Setup Git
+        run: |
+          git --version
+          git config --global user.email "test@github.com"
+          git config --global user.name "GitHub Action"
+          git --version
+      - name: Setup PHP
+        # use PHP of specific version
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip
+          coverage: none # disable xdebug, pcov
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2
+
+      - name: Install Composer Dependencies
+        run: |
+           composer require "illuminate/contracts=^${{ matrix.laravel }}" --no-update
+           composer update --prefer-dist --no-interaction --no-progress
+      - name: Run PHPUnit Tests
+        run: composer test

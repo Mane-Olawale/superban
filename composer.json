@@ -1,0 +1,48 @@
+{
+    "name": "mane-olawale/superban",
+    "description": "A Laravel package for for banning suspicious HTTP clients.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/mane-olawale/superban",
+    "support": {
+        "issues": "https://github.com/mane-olawale/superban/issues",
+        "source": "https://github.com/mane-olawale/superban"
+    },
+    "authors": [
+        {
+            "name": "Ilesanmi Olawale Adedotun",
+            "homepage": "https://twitter.com/mane_olawale",
+            "email": "horlwaley001@gmail.com"
+        }
+    ],
+	"require": {
+		"php": "^7.2|^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
+	},
+    "require-dev": {
+        "orchestra/testbench": "^7.0|^8.0",
+        "phpunit/phpunit": "~8.0|~9.0",
+        "spatie/test-time": "^1.3",
+        "spatie/invade": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ManeOlawale\\Superban\\": "src/"
+        }
+    },
+    "autoload-dev": {
+         "psr-4": {
+             "ManeOlawale\\Superban\\Tests\\": "tests/"
+         }
+     },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --verbose"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ManeOlawale\\Superban\\SuperbanServiceProvider"
+            ]
+        }
+    }
+}
