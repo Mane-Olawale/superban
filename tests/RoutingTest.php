@@ -27,7 +27,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(2);
@@ -44,7 +45,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_route')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(2);
@@ -61,7 +63,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_custom')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(3);
@@ -78,7 +81,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_custom')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(3);
@@ -96,7 +100,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(2);
@@ -114,7 +119,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_route')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(1440)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(2);
@@ -132,7 +138,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_custom')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(3);
@@ -150,7 +157,8 @@ class RoutingTest extends TestBench
 
         $this->get('/superban_custom')
             ->assertSee(
-                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.'
+                'Sorry, you\'re temporarily banned. Please return after ' . $now->addMinutes(2880)->format('M d, Y, g:i a') . '.',
+                false
             )->assertStatus(403);
         
         TestTime::addDays(3);
