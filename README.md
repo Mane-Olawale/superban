@@ -1,5 +1,12 @@
 # SuperBan Laravel Package
 
+<p align="center">
+<a href="https://github.com/Mane-Olawale/superban"><img src="https://github.com/Mane-Olawale/superban/actions/workflows/tests.yml/badge.svg" alt="Github"></a>
+<a href="https://packagist.org/packages/mane-olawale/superban"><img src="https://img.shields.io/packagist/dt/mane-olawale/superban" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/mane-olawale/superban"><img src="https://img.shields.io/packagist/v/mane-olawale/superban" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/mane-olawale/superban"><img src="https://img.shields.io/packagist/l/mane-olawale/superban" alt="License"></a>
+</p>
+
 The SuperBan Laravel package is a powerful tool designed to enhance your application's security and performance by efficiently managing and restricting users or clients who exceed predefined request limits. This package is particularly useful in scenarios where abusive or excessive requests can pose a threat to your application's stability and responsiveness.
 
 ## Installation
@@ -8,6 +15,22 @@ You can install the package via composer:
 
 ```bash
 composer require mane-olawale/superban
+```
+
+## Configuration
+
+This package can be used without any configuration, but you can as well change something to what you prefer.
+
+First publish the package config to your config directory by running
+
+```bash
+php artisan vendor:publish --provider="ManeOlawale\Superban\SuperbanServiceProvider" --tag="superban.config"
+```
+
+Then add `SUPERBAN_DRIVER` to your .env like so:
+
+```env
+SUPERBAN_DRIVER=redis
 ```
 
 ## Usage
